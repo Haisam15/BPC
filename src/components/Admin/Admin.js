@@ -46,7 +46,7 @@ export default function Admin() {
                         sidebarOpen ? "text-lg" : " text-xs"
                     } `}
                 >
-                    Haisam
+                  
                 </Link>
                 <ul className="flex flex-col gap-2 mt-4 flex-1">
                     <li className="flex items-center">
