@@ -1,0 +1,277 @@
+/* SignUpCard.css */
+
+.App {
+  text-align: center;
+  font-family: 'Roboto', sans-serif; 
+  background-image: url("./Images/stripes-6528728_1920.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F7F7F7; /*  background color */
+}
+
+/* Add movement and animation to the logo */
+.logo img {
+  filter: brightness(0) invert(1);
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  animation: moveLogo 1s ease-in-out infinite alternate;
+}
+
+@keyframes moveLogo {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+.boxButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.boxButton button {
+  background-color: whitesmoke;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease-in-out; /*transition for smooth hover effect */
+}
+.boxButton button:hover {
+  transform: translateY(-5px) scale(1.05); /* Combined hover effects */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.boxButton button p {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 20px; /* Increased font size for better readability */
+  text-align: center;
+  padding: 10px 0;
+  line-height: 1.4; /* Adjusted line height for better spacing */
+  animation: moveText 1s ease infinite alternate; /* Retained movement animation */
+}
+
+.Link {
+  text-decoration: none;
+}
+.logo img {
+  filter: brightness(0) invert(1);
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  animation: bounceLogo 1s ease infinite alternate; /* Added continuous bouncing animation */
+}
+
+.myLogo img {
+  filter: brightness(0) invert(1);
+  width: 400px;
+  display: block;
+  margin: 0 auto;
+  animation: moveMyLogo 1s ease-in-out infinite alternate;
+}
+@keyframes bounceLogo {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes moveMyLogo {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-5px);
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 150px;
+}
+
+.boxButton {
+  border-radius: 20px;
+  margin: 20px;
+  width: 200px;
+  overflow: hidden;
+  transition: transform 0.35s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.boxButton button img {
+  width: 200px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  border-radius: 100%; /* Make it a circle */
+  margin-bottom: 10px;
+  object-fit: cover;
+  border: 4px solid #ccc; /* border color to grey */
+  transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out; /*  smooth transitions on hover */
+}
+
+.boxButton button:hover img {
+  transform: scale(1.1); /* Increase size on hover */
+  border-color: #666; /*   border color on hover */
+}
+.boxButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.boxButton button {
+  background-color: whitesmoke;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
+
+.boxButton button img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  object-fit: cover;
+}
+
+.boxButton button p {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px 0;
+
+  /* Add animation properties for movement */
+  animation: moveText 1s ease infinite alternate; /* Adjust duration and other properties as needed */
+}
+.boxButton button p {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 20px; /* Increased font size for better readability */
+  text-align: center;
+  padding: 10px 0;
+  line-height: 1.4; /* Adjusted line height for better spacing */
+  position: relative; /* Added relative positioning for animation */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.boxButton button p {
+  animation: slideText 6s infinite alternate; /* Adjusted speed of sliding animation */
+}
+
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 90px;
+  background-color: #17343F;
+}
+
+.font {
+  font-weight: bold;
+}
+
+.already {
+  color: aliceblue;
+}
+
+.already1 {
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+}
+
+.contentSection {
+  border: 1px solid #ccc;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  padding: 20px;
+  padding-top: 80px;
+  width: 30%;
+  margin: 10px;
+  transition: transform 0.3s ease-in-out;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.contentSection:hover {
+  transform: scale(1.05);
+}
+
+
+.contentSection p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contentSection p {
+  animation: fadeInUp 8s ease-in-out; /* Adjust duration and other properties as needed */
+}
+.contentSection h2 {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contentSection h2 {
+  animation: fadeInDown 4s ease-in-out; /* Adjust duration and other properties as needed */
+}

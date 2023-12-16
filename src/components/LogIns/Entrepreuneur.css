@@ -1,0 +1,129 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+}
+
+.haisam {
+  display: flex;
+  justify-content: flex-end;
+  align-items: left;
+  height: 100vh;
+}
+
+.signup-page {
+  display: flex;
+  justify-content: flex-end;
+  float: right;
+  width: 100%;
+  height: 200%;
+  max-width: 1200px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #2e7f86;
+}
+
+.info-section {
+  flex: 1;
+  position: absolute;
+  width: 70%;
+  left: 0;
+  height: 200%;
+  background-image: url("../Images/stripes-6528728_1920.png");
+  background-size: cover;
+  background-position: center;
+  background-color: grey;
+  padding: 40px;
+  overflow: hidden; 
+}
+
+
+.specific-info {
+  color: #fff;
+  overflow: hidden;
+  white-space: normal;
+  display: inline-block;
+  animation: slideText 0s linear infinite;
+  text-align: left; 
+  font-size: 18px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.specific-info p {
+  text-align: justify;
+  margin: 0; 
+  font-size: 18;
+
+}
+
+@keyframes slideText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+
+.form-section {
+  display: flex;
+  justify-content: end;
+  background-color: #f3f3f3;
+  padding: 40px;
+}
+.form-container {
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+  transition: background-color 0.3s ease; 
+}
+
+.form-container:hover {
+  background-color: #f7f7f7; 
+}
+
+.form-heading {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.form-content input {
+  width: calc(100% - 22px);
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.form-content input:hover {
+  background-color: #e6e6e6; 
+}
+
+.form-content button {
+  width: calc(100% - 22px);
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.form-content button:hover {
+  background-color: #0056b3;
+}
