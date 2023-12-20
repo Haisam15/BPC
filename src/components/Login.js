@@ -1,10 +1,24 @@
-import React from 'react';
-import './Login.css'; // Import your CSS for styling
+import React, { useState } from "react";
+import "./Login.css"; // Import your CSS for styling
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle login logic here
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+  const handleSubmit = async (e) => {
+    await axios.post("http://localhost:5000/login", formData)
+      .then((res) => {
+        if (res.status === 200) {
+          navigate("/coming-soon");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -14,15 +28,35 @@ function LoginPage() {
         <img src="login.png" alt="Login" className="login-image" />
 
         <h2 className="login-header">Login</h2>
-        <form onSubmit={handleSubmit} className="login-form">
+        {/* <form className="login-form"> */}
           <div className="input-group">
-            <input type="email" id="email" name="email" placeholder="Email" />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              placeholder="Email"
+              onChange={(e) => {
+                setFormData({ ...formData, email: e.target.value });
+              }}
+            />
           </div>
           <div className="input-group">
-            <input type="password" id="password" name="password" placeholder="Password" />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={(e) => {
+                setFormData({ ...formData, password: e.target.value });
+              }}
+              placeholder="Password"
+            />
           </div>
-          <button type="submit" className="login-btn">Login</button>
-        </form>
+          <button onClick={handleSubmit} type="submit" className="login-btn">
+            Login
+          </button>
+        {/* </form> */}
         <div className="forgot-password">
           <a href="/forgot-password">Forgot Password?</a>
         </div>

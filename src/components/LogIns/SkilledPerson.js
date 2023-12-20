@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import './InvestorLogIn.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { sendEmail } from '../../Utils/MailService';
+
 
 const SkilledPersonSignup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -13,6 +18,7 @@ const SkilledPersonSignup = () => {
     city: '',
     country: '',
     postalCode: '',
+    role: 'skilledPerson',
   });
 
   const [errors, setErrors] = useState({});
@@ -92,23 +98,22 @@ const SkilledPersonSignup = () => {
     return valid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
       console.log('Form submitted:', formData);
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-        phone: '',
-        address: '',
-        city: '',
-        country: '',
-        postalCode: '',
-      });
+      await axios.post('http://localhost:5000/skilledPersonSignup', formData).then((res) => {
+       if(res.status === 201){
+        sendEmail(formData.firstName, formData.email);
+        navigate('/coming-soon');
+       }
+      }).catch((err) => {
+        console.log(err);
+      }
+      );
+
+
     } else {
       console.log('Form has validation errors');
     }
