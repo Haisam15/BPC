@@ -7,7 +7,10 @@ import EntrepreuneurSignup from './components/LogIns/Entrepreuneur';
 import SkilledPersonSignup from './components/LogIns/SkilledPerson';
 import LoginPage from './components/Login';
 import ComingSoonPage from './components/Homepage';
-import AdminLayout from './components/Admin/Admin';
+import AdminLayout from './components/Admin/MainAdmin';
+import Dashboard from './components/Admin/Dashboard';
+import Users from './components/Admin/Users';
+import Projects from './components/Admin/Projects'
 
 function App() {
   return (
@@ -21,7 +24,9 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/coming-soon" element={<ComingSoonPage />} />
         <Route path="/admin" element={<AdminLayout/>} >
-          <Route path="users" element={<h1>Users</h1>} />
+          <Route path="dashboard" element={<Dashboard/>} />
+          <Route path="users" element={<Users/>} />
+          <Route path="projects" element={<Projects/>} />
         </Route>
       </Routes>
     </Router>
