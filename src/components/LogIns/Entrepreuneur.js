@@ -25,6 +25,12 @@ const EntrepreuneurSignup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
+  const [cnicImage, setCNICImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setCNICImage(file);
+  };
 
   const validateForm = () => {
     let valid = true;
@@ -100,6 +106,7 @@ const EntrepreuneurSignup = () => {
     setFormData({
       firstName: "",
       lastName: "",
+      username: "",
       email: "",
       password: "",
       confirmPassword: "",
@@ -130,6 +137,12 @@ const EntrepreuneurSignup = () => {
       } catch (error) {}
     } else {
       console.log("Form has validation errors");
+    }
+    if (cnicImage) {
+      console.log("CNIC Image uploaded:", cnicImage);
+      // You can send the image to the server here
+    } else {
+      console.log("Please select a CNIC image.");
     }
   };
 
@@ -189,16 +202,19 @@ const EntrepreuneurSignup = () => {
             </span>
             <input
               type="text"
-              id="cnic"
-              name="cnic"
-              placeholder="CNIC (13 digits)"
-              value={formData.cnic}
+              id="username"
+              name="UserName"
+              placeholder="User Name"
+              value={formData.UserName}
               onChange={handleChange}
               required
             />
-            <span className={`error-message ${errors.cnic ? "active" : ""}`}>
-              {errors.cnic}
+            <span
+              className={`error-message ${errors.UserName ? "active" : ""}`}
+            >
+              {errors.UserName}
             </span>
+            
 
             <input
               type="email"
@@ -283,40 +299,7 @@ const EntrepreuneurSignup = () => {
             <span className={`error-message ${errors.city ? "active" : ""}`}>
               {errors.city}
             </span>
-            <textarea
-              id="businessPlan"
-              name="businessPlan"
-              placeholder="Business Plan"
-              value={formData.businessPlan}
-              onChange={handleChange}
-              required
-              rows="6" // Increase or decrease the number of rows as needed
-              cols="30" // Adjust the number of columns as needed
-            ></textarea>
-            <span
-              className={`error-message ${errors.businessPlan ? "active" : ""}`}
-            >
-              {errors.businessPlan}
-            </span>
-
-            <textarea
-              id="businessDescription"
-              name="businessDescription"
-              placeholder="Business Description"
-              value={formData.businessDescription}
-              onChange={handleChange}
-              required
-              rows="8" // Increase or decrease the number of rows as needed
-              cols="30" // Adjust the number of columns as needed
-            ></textarea>
-            <span
-              className={`error-message ${
-                errors.businessDescription ? "active" : ""
-              }`}
-            >
-              {errors.businessDescription}
-            </span>
-
+            
             <input
               type="text"
               id="country"
@@ -344,6 +327,14 @@ const EntrepreuneurSignup = () => {
             >
               {errors.postalCode}
             </span>
+            <label htmlFor="cnicImage">CNIC Image:</label>
+          <input 
+            type="file" 
+            id="cnicImage" 
+            accept="image/*" 
+            onChange={handleImageChange} 
+            required 
+          />
 
             <button type="submit" className="animated-button">
               Sign Up

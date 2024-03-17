@@ -10,6 +10,7 @@ const SkilledPersonSignup = () => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -27,6 +28,13 @@ const SkilledPersonSignup = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: '' });
   };
+  const [cnicImage, setCNICImage] = useState(null);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    // You can add validation here to ensure the file is an image or specific formats
+    setCNICImage(file);
+  };
 
   const validateForm = () => {
     let valid = true;
@@ -41,6 +49,7 @@ const SkilledPersonSignup = () => {
       newErrors.lastName = 'Last name is required';
       valid = false;
     }
+    
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
@@ -117,6 +126,12 @@ const SkilledPersonSignup = () => {
     } else {
       console.log('Form has validation errors');
     }
+    if (cnicImage) {
+      console.log("CNIC Image uploaded:", cnicImage);
+      // You can send the image to the server here
+    } else {
+      console.log("Please select a CNIC image.");
+    }
   };
 
   return (
@@ -169,17 +184,22 @@ const SkilledPersonSignup = () => {
           {errors.lastName}
         </span>
         <input
-          type="text"
-          id="cnic"
-          name="cnic"
-          placeholder="CNIC (13 digits)"
-          value={formData.cnic}
-          onChange={handleChange}
-          required
-        />
-        <span className={`error-message ${errors.cnic ? 'active' : ''}`}>
-          {errors.cnic}
-        </span>
+              type="text"
+              id="username"
+              name="UserName"
+              placeholder="User Name"
+              value={formData.UserName}
+              onChange={handleChange}
+              required
+            />
+            <span
+              className={`error-message ${errors.UserName ? "active" : ""}`}
+            >
+              {errors.UserName}
+            </span>
+        
+        
+        
 
         <input
           type="email"
@@ -284,6 +304,15 @@ const SkilledPersonSignup = () => {
         <span className={`error-message ${errors.postalCode ? 'active' : ''}`}>
           {errors.postalCode}
         </span>
+
+        <label htmlFor="cnicImage">CNIC Image:</label>
+          <input 
+            type="file" 
+            id="cnicImage" 
+            accept="image/*" 
+            onChange={handleImageChange} 
+            required 
+          />
 
         <button type="submit" className="animated-button">
           Sign Up

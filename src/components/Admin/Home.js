@@ -23,6 +23,21 @@ function Home() {
             </Link>
           </li>
           <li className='nav-item'>                    
+            <Link to="/admin/investorusers" className='nav-link text-white btn btn-primary'>
+              <FaUserAlt/> <span className='ms-2'>Investor</span>
+            </Link>
+          </li>
+          <li className='nav-item'>                    
+            <Link to="/admin/entrepreuneurusers" className='nav-link text-white btn btn-primary'>
+              <FaUserAlt/> <span className='ms-2'>Entrepreuneur</span>
+            </Link>
+          </li>
+          <li className='nav-item'>                    
+            <Link to="/admin/skilledusers" className='nav-link text-white btn btn-primary'>
+              <FaUserAlt/> <span className='ms-2'>Skilled Person</span>
+            </Link>
+          </li>
+          <li className='nav-item'>                    
             <Link to="/admin/projects" className='nav-link text-white btn btn-primary'>
               <FaTasks/> <span className='ms-2'>Projects</span>
             </Link>

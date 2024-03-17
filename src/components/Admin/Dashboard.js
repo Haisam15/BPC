@@ -4,7 +4,7 @@ function Dashboard() {
   return (
     <div>
       <table class="table w-100">
-            
+
             <thead>
                 <tr>
                     <th scope="col">#</th>
